@@ -407,7 +407,11 @@ def main():
     print("Server ready for connections...", file=sys.stderr)
     
     # Run the MCP server
-    asyncio.run(stdio_server(app))
+    async def run_server():
+        async with stdio_server(app) as (read_stream, write_stream):
+            await app.run(read_stream, write_stream, {})
+    
+    asyncio.run(run_server())
     return 0
 
 
