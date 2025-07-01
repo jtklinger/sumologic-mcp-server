@@ -3,7 +3,7 @@
     "sumologic": {
       "command": "python",
       "args": ["-m", "sumologic_mcp_server.server"],
-      "cwd": "/Users/jeremy.klinger/Library/CloudStorage/GoogleDrive-jeremy.klinger@sumologic.com/My Drive/GitHub/SumoRepos/sumologic-mcp-server",
+      "cwd": "YOUR_PATH_HERE",
       "env": {
         "SUMO_ACCESS_ID": "${SUMO_ACCESS_ID}",
         "SUMO_ACCESS_KEY": "${SUMO_ACCESS_KEY}",
