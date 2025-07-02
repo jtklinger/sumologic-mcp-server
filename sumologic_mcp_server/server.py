@@ -3,10 +3,12 @@
 import asyncio
 import json
 import os
+import sys
 from typing import Any, Dict, List, Optional, Sequence
 
 from dotenv import load_dotenv
 from mcp.server import Server
+from mcp.server.stdio import stdio_server
 from mcp import McpError
 from mcp.types import (
     EmptyResult,
@@ -408,7 +410,7 @@ def main():
     
     # Run the MCP server
     async def run_server():
-        async with stdio_server(app) as (read_stream, write_stream):
+        async with stdio_server() as (read_stream, write_stream):
             await app.run(read_stream, write_stream, {})
     
     asyncio.run(run_server())
