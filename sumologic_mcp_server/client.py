@@ -114,7 +114,7 @@ class SumoLogicClient:
             data = response.json()
             return SearchJob(
                 id=data["id"],
-                state=data["state"],
+                state=data.get("state", "NOT_STARTED"),  # API doesn't return state initially
                 query=query,
                 from_time=from_time,
                 to_time=to_time
